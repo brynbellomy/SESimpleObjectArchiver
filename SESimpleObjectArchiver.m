@@ -9,9 +9,6 @@
 #import "SESimpleObjectArchiver.h"
 #import "SEArchivableDatabase.h"
 
-#define kDataKey        @"Data"
-#define kDataFile       @"data.plist"
-
 @implementation SESimpleObjectArchiver
 
 + (BOOL) createDataPath:(id<SEArchivable>)forObject {

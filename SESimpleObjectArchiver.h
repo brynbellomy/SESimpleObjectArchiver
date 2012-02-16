@@ -1,6 +1,6 @@
 //
-//  SEArchivable.h
-//  SEArchivable
+//  SESimpleObjectArchiver.h
+//  SESimpleObjectArchiver
 //
 //  Created by bryn austin bellomy on 2/1/12.
 //  Copyright (c) 2012 signalenvelope LLC. All rights reserved.
@@ -8,6 +8,9 @@
 
 
 #import <Foundation/Foundation.h>
+
+#define kDataKey        @"Data"
+#define kDataFile       @"data.plist"
 
 @protocol SEArchivable <NSCoding, NSObject>
 

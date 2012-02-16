@@ -8,9 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol SEArchivable;
+
 @interface SEArchivableDatabase : NSObject
 
 + (NSMutableArray *)loadSerializables:(NSString *)fileExtension;
++ (void)loadSerializablesSerially:(NSString *)fileExtension block:(void (^)(id<SEArchivable>))block;
 + (NSString *)nextPath:(NSString *)fileExtension;
 + (NSString *)getPrivateDocsDir;
 
