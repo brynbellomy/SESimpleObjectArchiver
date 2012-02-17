@@ -23,8 +23,9 @@
 @interface SESimpleObjectArchiver : NSObject
 
 + (BOOL) createDataPath:(id<SEArchivable>)forObject;
-+ (id<SEArchivable>) loadFromFile:(NSString *)docPath;
++ (id<SEArchivable>) loadFromFile:(NSString *)docPath __attribute__((ns_returns_autoreleased));
 + (void) saveToFile:(id<SEArchivable>)forObject;
-+ (void) deleteFile:(id<SEArchivable>)forObject;
++ (void) deleteFileForObject:(id<SEArchivable>)obj;
++ (void) deleteFile:(NSString *)docPath;
 
 @end

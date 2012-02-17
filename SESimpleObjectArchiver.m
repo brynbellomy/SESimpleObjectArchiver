@@ -34,7 +34,7 @@
   NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:codedData];
   id<SEArchivable> obj = [unarchiver decodeObjectForKey:kDataKey];
   [unarchiver finishDecoding];
-  
+
   [obj setDocPath:docPath];
   
   return obj;
@@ -51,9 +51,13 @@
   [data writeToFile:dataPath atomically:YES];
 }
 
-+ (void) deleteFile:(id<SEArchivable>)forObject {
++ (void) deleteFileForObject:(id<SEArchivable>)obj {
+  [self deleteFile:[obj docPath]];
+}
+
++ (void) deleteFile:(NSString *)docPath {
   NSError *error;
-  BOOL success = [[NSFileManager defaultManager] removeItemAtPath:[forObject docPath] error:&error];
+  BOOL success = [[NSFileManager defaultManager] removeItemAtPath:docPath error:&error];
   if (!success)
     NSLog(@"Error removing document path: %@", error.localizedDescription);
 }
